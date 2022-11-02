@@ -9,10 +9,10 @@ import 'package:openapi/src/auth/api_key_auth.dart';
 import 'package:openapi/src/auth/basic_auth.dart';
 import 'package:openapi/src/auth/bearer_auth.dart';
 import 'package:openapi/src/auth/oauth.dart';
-import 'package:openapi/src/api/group_management_api.dart';
-import 'package:openapi/src/api/instance_api.dart';
-import 'package:openapi/src/api/message_sending_api.dart';
-import 'package:openapi/src/api/miscellaneous_api.dart';
+import 'package:openapi/src/whatsapi/group_management_api.dart';
+import 'package:openapi/src/whatsapi/instance_api.dart';
+import 'package:openapi/src/whatsapi/message_sending_api.dart';
+import 'package:openapi/src/whatsapi/miscellaneous_api.dart';
 
 class Openapi {
   static const String basePath = r'/api';
