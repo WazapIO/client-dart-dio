@@ -34,7 +34,7 @@ class MiscellaneousApi {
   ///
   /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<APIResponse>> instancesInstanceKeyMiscProfilePicGet({ 
+  Future<Response<APIResponse>> getProfilePic({ 
     required String instanceKey,
     required String jid,
     CancelToken? cancelToken,
@@ -122,7 +122,7 @@ class MiscellaneousApi {
   ///
   /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<APIResponse>> instancesInstanceKeyMiscUserInfoPost({ 
+  Future<Response<APIResponse>> getUsersInfo({ 
     required String instanceKey,
     required UserInfoPayload data,
     CancelToken? cancelToken,

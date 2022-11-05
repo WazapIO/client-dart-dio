@@ -9,12 +9,12 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instancesInstanceKeyMiscProfilePicGet**](MiscellaneousApi.md#instancesinstancekeymiscprofilepicget) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
-[**instancesInstanceKeyMiscUserInfoPost**](MiscellaneousApi.md#instancesinstancekeymiscuserinfopost) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
+[**getProfilePic**](MiscellaneousApi.md#getprofilepic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
+[**getUsersInfo**](MiscellaneousApi.md#getusersinfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
 
 
-# **instancesInstanceKeyMiscProfilePicGet**
-> APIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
+# **getProfilePic**
+> APIResponse getProfilePic(instanceKey, jid)
 
 Get profile pic.
 
@@ -33,10 +33,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final String jid = jid_example; // String | JID
 
 try {
-    final response = api.instancesInstanceKeyMiscProfilePicGet(instanceKey, jid);
+    final response = api.getProfilePic(instanceKey, jid);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MiscellaneousApi->instancesInstanceKeyMiscProfilePicGet: $e\n');
+    print('Exception when calling MiscellaneousApi->getProfilePic: $e\n');
 }
 ```
 
@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyMiscUserInfoPost**
-> APIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
+# **getUsersInfo**
+> APIResponse getUsersInfo(instanceKey, data)
 
 Fetches the users info.
 
@@ -82,10 +82,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final UserInfoPayload data = ; // UserInfoPayload | Data
 
 try {
-    final response = api.instancesInstanceKeyMiscUserInfoPost(instanceKey, data);
+    final response = api.getUsersInfo(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MiscellaneousApi->instancesInstanceKeyMiscUserInfoPost: $e\n');
+    print('Exception when calling MiscellaneousApi->getUsersInfo: $e\n');
 }
 ```
 

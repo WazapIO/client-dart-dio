@@ -9,25 +9,25 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instancesInstanceKeySendAudioPost**](MessageSendingApi.md#instancesinstancekeysendaudiopost) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
-[**instancesInstanceKeySendButtonMediaPost**](MessageSendingApi.md#instancesinstancekeysendbuttonmediapost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
-[**instancesInstanceKeySendButtonsPost**](MessageSendingApi.md#instancesinstancekeysendbuttonspost) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
-[**instancesInstanceKeySendContactPost**](MessageSendingApi.md#instancesinstancekeysendcontactpost) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
-[**instancesInstanceKeySendDocumentPost**](MessageSendingApi.md#instancesinstancekeysenddocumentpost) | **POST** /instances/{instance_key}/send/document | Send raw document.
-[**instancesInstanceKeySendImagePost**](MessageSendingApi.md#instancesinstancekeysendimagepost) | **POST** /instances/{instance_key}/send/image | Send raw image.
-[**instancesInstanceKeySendListPost**](MessageSendingApi.md#instancesinstancekeysendlistpost) | **POST** /instances/{instance_key}/send/list | Send a List message.
-[**instancesInstanceKeySendLocationPost**](MessageSendingApi.md#instancesinstancekeysendlocationpost) | **POST** /instances/{instance_key}/send/location | Send a location message.
-[**instancesInstanceKeySendMediaPost**](MessageSendingApi.md#instancesinstancekeysendmediapost) | **POST** /instances/{instance_key}/send/media | Send a media message.
-[**instancesInstanceKeySendPollPost**](MessageSendingApi.md#instancesinstancekeysendpollpost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
-[**instancesInstanceKeySendTemplateMediaPost**](MessageSendingApi.md#instancesinstancekeysendtemplatemediapost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
-[**instancesInstanceKeySendTemplatePost**](MessageSendingApi.md#instancesinstancekeysendtemplatepost) | **POST** /instances/{instance_key}/send/template | Send a template message.
-[**instancesInstanceKeySendTextPost**](MessageSendingApi.md#instancesinstancekeysendtextpost) | **POST** /instances/{instance_key}/send/text | Send a text message.
-[**instancesInstanceKeySendUploadPost**](MessageSendingApi.md#instancesinstancekeysenduploadpost) | **POST** /instances/{instance_key}/send/upload | Upload media.
-[**instancesInstanceKeySendVideoPost**](MessageSendingApi.md#instancesinstancekeysendvideopost) | **POST** /instances/{instance_key}/send/video | Send raw video.
+[**sendAudio**](MessageSendingApi.md#sendaudio) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
+[**sendButtonMessage**](MessageSendingApi.md#sendbuttonmessage) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
+[**sendButtonWithMedia**](MessageSendingApi.md#sendbuttonwithmedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
+[**sendContact**](MessageSendingApi.md#sendcontact) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
+[**sendDocument**](MessageSendingApi.md#senddocument) | **POST** /instances/{instance_key}/send/document | Send raw document.
+[**sendImage**](MessageSendingApi.md#sendimage) | **POST** /instances/{instance_key}/send/image | Send raw image.
+[**sendListMessage**](MessageSendingApi.md#sendlistmessage) | **POST** /instances/{instance_key}/send/list | Send a List message.
+[**sendLocation**](MessageSendingApi.md#sendlocation) | **POST** /instances/{instance_key}/send/location | Send a location message.
+[**sendMediaMessage**](MessageSendingApi.md#sendmediamessage) | **POST** /instances/{instance_key}/send/media | Send a media message.
+[**sendPollMessage**](MessageSendingApi.md#sendpollmessage) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
+[**sendTemplate**](MessageSendingApi.md#sendtemplate) | **POST** /instances/{instance_key}/send/template | Send a template message.
+[**sendTemplateWithMedia**](MessageSendingApi.md#sendtemplatewithmedia) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
+[**sendTextMessage**](MessageSendingApi.md#sendtextmessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
+[**sendVideo**](MessageSendingApi.md#sendvideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
+[**uploadMedia**](MessageSendingApi.md#uploadmedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
 
 
-# **instancesInstanceKeySendAudioPost**
-> APIResponse instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption)
+# **sendAudio**
+> APIResponse sendAudio(instanceKey, to, sendAudioRequest, caption)
 
 Send raw audio.
 
@@ -44,14 +44,14 @@ import 'package:openapi/api.dart';
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String to = to_example; // String | The recipient's number
-final InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest = ; // InstancesInstanceKeySendAudioPostRequest | 
+final SendAudioRequest sendAudioRequest = ; // SendAudioRequest | 
 final String caption = caption_example; // String | Attached caption
 
 try {
-    final response = api.instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption);
+    final response = api.sendAudio(instanceKey, to, sendAudioRequest, caption);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendAudioPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendAudio: $e\n');
 }
 ```
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **to** | **String**| The recipient's number | 
- **instancesInstanceKeySendAudioPostRequest** | [**InstancesInstanceKeySendAudioPostRequest**](InstancesInstanceKeySendAudioPostRequest.md)|  | 
+ **sendAudioRequest** | [**SendAudioRequest**](SendAudioRequest.md)|  | 
  **caption** | **String**| Attached caption | [optional] 
 
 ### Return type
@@ -79,57 +79,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendButtonMediaPost**
-> APIResponse instancesInstanceKeySendButtonMediaPost(instanceKey, data)
-
-Send a button message with a media header.
-
-Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getMessageSendingApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final ButtonMessageWithMediaPayload data = ; // ButtonMessageWithMediaPayload | Message data
-
-try {
-    final response = api.instancesInstanceKeySendButtonMediaPost(instanceKey, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendButtonMediaPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md)| Message data | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeySendButtonsPost**
-> APIResponse instancesInstanceKeySendButtonsPost(instanceKey, data)
+# **sendButtonMessage**
+> APIResponse sendButtonMessage(instanceKey, data)
 
 Send a button message.
 
@@ -148,10 +99,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final ButtonMessagePayload data = ; // ButtonMessagePayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendButtonsPost(instanceKey, data);
+    final response = api.sendButtonMessage(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendButtonsPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendButtonMessage: $e\n');
 }
 ```
 
@@ -177,8 +128,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendContactPost**
-> APIResponse instancesInstanceKeySendContactPost(instanceKey, data)
+# **sendButtonWithMedia**
+> APIResponse sendButtonWithMedia(instanceKey, data)
+
+Send a button message with a media header.
+
+Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getMessageSendingApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final ButtonMessageWithMediaPayload data = ; // ButtonMessageWithMediaPayload | Message data
+
+try {
+    final response = api.sendButtonWithMedia(instanceKey, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MessageSendingApi->sendButtonWithMedia: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md)| Message data | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendContact**
+> APIResponse sendContact(instanceKey, data)
 
 Send a contact message.
 
@@ -197,10 +197,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final ContactMessagePayload data = ; // ContactMessagePayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendContactPost(instanceKey, data);
+    final response = api.sendContact(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendContactPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendContact: $e\n');
 }
 ```
 
@@ -226,8 +226,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendDocumentPost**
-> APIResponse instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption)
+# **sendDocument**
+> APIResponse sendDocument(instanceKey, to, sendDocumentRequest, caption)
 
 Send raw document.
 
@@ -244,14 +244,14 @@ import 'package:openapi/api.dart';
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String to = to_example; // String | The recipient's number
-final InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest = ; // InstancesInstanceKeySendDocumentPostRequest | 
+final SendDocumentRequest sendDocumentRequest = ; // SendDocumentRequest | 
 final String caption = caption_example; // String | Attached caption
 
 try {
-    final response = api.instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption);
+    final response = api.sendDocument(instanceKey, to, sendDocumentRequest, caption);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendDocumentPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendDocument: $e\n');
 }
 ```
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **to** | **String**| The recipient's number | 
- **instancesInstanceKeySendDocumentPostRequest** | [**InstancesInstanceKeySendDocumentPostRequest**](InstancesInstanceKeySendDocumentPostRequest.md)|  | 
+ **sendDocumentRequest** | [**SendDocumentRequest**](SendDocumentRequest.md)|  | 
  **caption** | **String**| Attached caption | [optional] 
 
 ### Return type
@@ -279,8 +279,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendImagePost**
-> APIResponse instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption)
+# **sendImage**
+> APIResponse sendImage(instanceKey, to, sendImageRequest, caption)
 
 Send raw image.
 
@@ -297,14 +297,14 @@ import 'package:openapi/api.dart';
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String to = to_example; // String | The recipient's number
-final InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest = ; // InstancesInstanceKeySendImagePostRequest | 
+final SendImageRequest sendImageRequest = ; // SendImageRequest | 
 final String caption = caption_example; // String | Attached caption
 
 try {
-    final response = api.instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption);
+    final response = api.sendImage(instanceKey, to, sendImageRequest, caption);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendImagePost: $e\n');
+    print('Exception when calling MessageSendingApi->sendImage: $e\n');
 }
 ```
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **to** | **String**| The recipient's number | 
- **instancesInstanceKeySendImagePostRequest** | [**InstancesInstanceKeySendImagePostRequest**](InstancesInstanceKeySendImagePostRequest.md)|  | 
+ **sendImageRequest** | [**SendImageRequest**](SendImageRequest.md)|  | 
  **caption** | **String**| Attached caption | [optional] 
 
 ### Return type
@@ -332,8 +332,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendListPost**
-> APIResponse instancesInstanceKeySendListPost(instanceKey, data)
+# **sendListMessage**
+> APIResponse sendListMessage(instanceKey, data)
 
 Send a List message.
 
@@ -352,10 +352,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final ListMessagePayload data = ; // ListMessagePayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendListPost(instanceKey, data);
+    final response = api.sendListMessage(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendListPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendListMessage: $e\n');
 }
 ```
 
@@ -381,8 +381,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendLocationPost**
-> APIResponse instancesInstanceKeySendLocationPost(instanceKey, data)
+# **sendLocation**
+> APIResponse sendLocation(instanceKey, data)
 
 Send a location message.
 
@@ -401,10 +401,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final LocationMessagePayload data = ; // LocationMessagePayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendLocationPost(instanceKey, data);
+    final response = api.sendLocation(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendLocationPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendLocation: $e\n');
 }
 ```
 
@@ -430,8 +430,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendMediaPost**
-> APIResponse instancesInstanceKeySendMediaPost(instanceKey, data)
+# **sendMediaMessage**
+> APIResponse sendMediaMessage(instanceKey, data)
 
 Send a media message.
 
@@ -450,10 +450,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final SendMediaPayload data = ; // SendMediaPayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendMediaPost(instanceKey, data);
+    final response = api.sendMediaMessage(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendMediaPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendMediaMessage: $e\n');
 }
 ```
 
@@ -479,8 +479,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendPollPost**
-> APIResponse instancesInstanceKeySendPollPost(instanceKey, data)
+# **sendPollMessage**
+> APIResponse sendPollMessage(instanceKey, data)
 
 Send a Poll message.
 
@@ -499,10 +499,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final PollMessagePayload data = ; // PollMessagePayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendPollPost(instanceKey, data);
+    final response = api.sendPollMessage(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendPollPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendPollMessage: $e\n');
 }
 ```
 
@@ -528,57 +528,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendTemplateMediaPost**
-> APIResponse instancesInstanceKeySendTemplateMediaPost(instanceKey, data)
-
-Send a template message with media.
-
-Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getMessageSendingApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final TemplateButtonWithMediaPayload data = ; // TemplateButtonWithMediaPayload | Message data
-
-try {
-    final response = api.instancesInstanceKeySendTemplateMediaPost(instanceKey, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendTemplateMediaPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md)| Message data | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeySendTemplatePost**
-> APIResponse instancesInstanceKeySendTemplatePost(instanceKey, data)
+# **sendTemplate**
+> APIResponse sendTemplate(instanceKey, data)
 
 Send a template message.
 
@@ -597,10 +548,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final TemplateButtonPayload data = ; // TemplateButtonPayload | Message data
 
 try {
-    final response = api.instancesInstanceKeySendTemplatePost(instanceKey, data);
+    final response = api.sendTemplate(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendTemplatePost: $e\n');
+    print('Exception when calling MessageSendingApi->sendTemplate: $e\n');
 }
 ```
 
@@ -626,8 +577,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendTextPost**
-> APIResponse instancesInstanceKeySendTextPost(instanceKey, data)
+# **sendTemplateWithMedia**
+> APIResponse sendTemplateWithMedia(instanceKey, data)
+
+Send a template message with media.
+
+Sends an interactive template message with a media header to the given user. Note: The valid button types are \"replyButton\", \"urlButton\", \"callButton\"
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getMessageSendingApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final TemplateButtonWithMediaPayload data = ; // TemplateButtonWithMediaPayload | Message data
+
+try {
+    final response = api.sendTemplateWithMedia(instanceKey, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MessageSendingApi->sendTemplateWithMedia: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md)| Message data | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendTextMessage**
+> APIResponse sendTextMessage(instanceKey, data)
 
 Send a text message.
 
@@ -646,10 +646,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final TextMessage data = ; // TextMessage | Message data
 
 try {
-    final response = api.instancesInstanceKeySendTextPost(instanceKey, data);
+    final response = api.sendTextMessage(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendTextPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendTextMessage: $e\n');
 }
 ```
 
@@ -675,59 +675,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeySendUploadPost**
-> APIResponse instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest)
-
-Upload media.
-
-Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getMessageSendingApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String type = type_example; // String | Media type
-final InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest = ; // InstancesInstanceKeySendUploadPostRequest | 
-
-try {
-    final response = api.instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendUploadPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **type** | **String**| Media type | 
- **instancesInstanceKeySendUploadPostRequest** | [**InstancesInstanceKeySendUploadPostRequest**](InstancesInstanceKeySendUploadPostRequest.md)|  | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeySendVideoPost**
-> APIResponse instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption)
+# **sendVideo**
+> APIResponse sendVideo(instanceKey, to, sendVideoRequest, caption)
 
 Send raw video.
 
@@ -744,14 +693,14 @@ import 'package:openapi/api.dart';
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String to = to_example; // String | The recipient's number
-final InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest = ; // InstancesInstanceKeySendVideoPostRequest | 
+final SendVideoRequest sendVideoRequest = ; // SendVideoRequest | 
 final String caption = caption_example; // String | Attached caption
 
 try {
-    final response = api.instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption);
+    final response = api.sendVideo(instanceKey, to, sendVideoRequest, caption);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeySendVideoPost: $e\n');
+    print('Exception when calling MessageSendingApi->sendVideo: $e\n');
 }
 ```
 
@@ -761,8 +710,59 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **to** | **String**| The recipient's number | 
- **instancesInstanceKeySendVideoPostRequest** | [**InstancesInstanceKeySendVideoPostRequest**](InstancesInstanceKeySendVideoPostRequest.md)|  | 
+ **sendVideoRequest** | [**SendVideoRequest**](SendVideoRequest.md)|  | 
  **caption** | **String**| Attached caption | [optional] 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **uploadMedia**
+> APIResponse uploadMedia(instanceKey, type, uploadMediaRequest)
+
+Upload media.
+
+Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getMessageSendingApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String type = type_example; // String | Media type
+final UploadMediaRequest uploadMediaRequest = ; // UploadMediaRequest | 
+
+try {
+    final response = api.uploadMedia(instanceKey, type, uploadMediaRequest);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MessageSendingApi->uploadMedia: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **type** | **String**| Media type | 
+ **uploadMediaRequest** | [**UploadMediaRequest**](UploadMediaRequest.md)|  | 
 
 ### Return type
 

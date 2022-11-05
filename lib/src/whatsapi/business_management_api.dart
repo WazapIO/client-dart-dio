@@ -31,7 +31,7 @@ class BusinessManagementApi {
   ///
   /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<APIResponse>> instancesInstanceKeyBusinessCatalogGet({ 
+  Future<Response<APIResponse>> fetchCatlog({ 
     required String instanceKey,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,

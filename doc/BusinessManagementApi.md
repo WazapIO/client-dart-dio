@@ -9,11 +9,11 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instancesInstanceKeyBusinessCatalogGet**](BusinessManagementApi.md#instancesinstancekeybusinesscatalogget) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
+[**fetchCatlog**](BusinessManagementApi.md#fetchcatlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 
 
-# **instancesInstanceKeyBusinessCatalogGet**
-> APIResponse instancesInstanceKeyBusinessCatalogGet(instanceKey)
+# **fetchCatlog**
+> APIResponse fetchCatlog(instanceKey)
 
 Fetches the catlog.
 
@@ -31,10 +31,10 @@ final api = Openapi().getBusinessManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 
 try {
-    final response = api.instancesInstanceKeyBusinessCatalogGet(instanceKey);
+    final response = api.fetchCatlog(instanceKey);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling BusinessManagementApi->instancesInstanceKeyBusinessCatalogGet: $e\n');
+    print('Exception when calling BusinessManagementApi->fetchCatlog: $e\n');
 }
 ```
 

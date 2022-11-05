@@ -9,30 +9,30 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instancesInstanceKeyGroupsAdminGet**](GroupManagementApi.md#instancesinstancekeygroupsadminget) | **GET** /instances/{instance_key}/groups/admin | Get admin groupss.
-[**instancesInstanceKeyGroupsCreatePost**](GroupManagementApi.md#instancesinstancekeygroupscreatepost) | **POST** /instances/{instance_key}/groups/create | Create group.
-[**instancesInstanceKeyGroupsGet**](GroupManagementApi.md#instancesinstancekeygroupsget) | **GET** /instances/{instance_key}/groups/ | Get all groups.
-[**instancesInstanceKeyGroupsGroupIdAnnouncePut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidannounceput) | **PUT** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
-[**instancesInstanceKeyGroupsGroupIdDelete**](GroupManagementApi.md#instancesinstancekeygroupsgroupiddelete) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
-[**instancesInstanceKeyGroupsGroupIdDescriptionPut**](GroupManagementApi.md#instancesinstancekeygroupsgroupiddescriptionput) | **PUT** /instances/{instance_key}/groups/{group_id}/description | Set group description.
-[**instancesInstanceKeyGroupsGroupIdGet**](GroupManagementApi.md#instancesinstancekeygroupsgroupidget) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
-[**instancesInstanceKeyGroupsGroupIdInviteCodeGet**](GroupManagementApi.md#instancesinstancekeygroupsgroupidinvitecodeget) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
-[**instancesInstanceKeyGroupsGroupIdLockPut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidlockput) | **PUT** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
-[**instancesInstanceKeyGroupsGroupIdNamePut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidnameput) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
-[**instancesInstanceKeyGroupsGroupIdParticipantsAddPost**](GroupManagementApi.md#instancesinstancekeygroupsgroupidparticipantsaddpost) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
-[**instancesInstanceKeyGroupsGroupIdParticipantsDemotePut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidparticipantsdemoteput) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
-[**instancesInstanceKeyGroupsGroupIdParticipantsPromotePut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidparticipantspromoteput) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
-[**instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete**](GroupManagementApi.md#instancesinstancekeygroupsgroupidparticipantsremovedelete) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
-[**instancesInstanceKeyGroupsGroupIdProfilePicPut**](GroupManagementApi.md#instancesinstancekeygroupsgroupidprofilepicput) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
-[**instancesInstanceKeyGroupsInviteInfoGet**](GroupManagementApi.md#instancesinstancekeygroupsinviteinfoget) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
+[**addParticipant**](GroupManagementApi.md#addparticipant) | **POST** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
+[**createGroup**](GroupManagementApi.md#creategroup) | **POST** /instances/{instance_key}/groups/create | Create group.
+[**demoteParticipant**](GroupManagementApi.md#demoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
+[**getAdminGroups**](GroupManagementApi.md#getadmingroups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups.
+[**getAllGroups**](GroupManagementApi.md#getallgroups) | **GET** /instances/{instance_key}/groups/ | Get all groups.
+[**getGroup**](GroupManagementApi.md#getgroup) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
+[**getGroupFromInviteLink**](GroupManagementApi.md#getgroupfrominvitelink) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
+[**getGroupInviteCode**](GroupManagementApi.md#getgroupinvitecode) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+[**leaveGroup**](GroupManagementApi.md#leavegroup) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
+[**promoteParticipant**](GroupManagementApi.md#promoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
+[**removeParticipant**](GroupManagementApi.md#removeparticipant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
+[**setGroupAnnounce**](GroupManagementApi.md#setgroupannounce) | **PUT** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
+[**setGroupDescription**](GroupManagementApi.md#setgroupdescription) | **PUT** /instances/{instance_key}/groups/{group_id}/description | Set group description.
+[**setGroupLocked**](GroupManagementApi.md#setgrouplocked) | **PUT** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
+[**setGroupName**](GroupManagementApi.md#setgroupname) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
+[**setGroupPicture**](GroupManagementApi.md#setgrouppicture) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
 
 
-# **instancesInstanceKeyGroupsAdminGet**
-> APIResponse instancesInstanceKeyGroupsAdminGet(instanceKey)
+# **addParticipant**
+> APIResponse addParticipant(instanceKey, groupId, data)
 
-Get admin groupss.
+Add participant.
 
-Returns list of all groups in which you are admin.
+Handles adding participants to a group. You must be admin in the group or the query will fail.
 
 ### Example
 ```dart
@@ -44,12 +44,14 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
 
 try {
-    final response = api.instancesInstanceKeyGroupsAdminGet(instanceKey);
+    final response = api.addParticipant(instanceKey, groupId, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsAdminGet: $e\n');
+    print('Exception when calling GroupManagementApi->addParticipant: $e\n');
 }
 ```
 
@@ -58,6 +60,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
 
 ### Return type
 
@@ -69,13 +73,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsCreatePost**
-> APIResponse instancesInstanceKeyGroupsCreatePost(instanceKey, data)
+# **createGroup**
+> APIResponse createGroup(instanceKey, data)
 
 Create group.
 
@@ -94,10 +98,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final GroupCreatePayload data = ; // GroupCreatePayload | Group create payload
 
 try {
-    final response = api.instancesInstanceKeyGroupsCreatePost(instanceKey, data);
+    final response = api.createGroup(instanceKey, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsCreatePost: $e\n');
+    print('Exception when calling GroupManagementApi->createGroup: $e\n');
 }
 ```
 
@@ -123,8 +127,106 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGet**
-> APIResponse instancesInstanceKeyGroupsGet(instanceKey, includeParticipants)
+# **demoteParticipant**
+> APIResponse demoteParticipant(instanceKey, groupId, data)
+
+Demote participant.
+
+Demotes admins in groups. You must be admin in the group or the query will fail.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
+
+try {
+    final response = api.demoteParticipant(instanceKey, groupId, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->demoteParticipant: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAdminGroups**
+> APIResponse getAdminGroups(instanceKey)
+
+Get admin groups.
+
+Returns list of all groups in which you are admin.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+
+try {
+    final response = api.getAdminGroups(instanceKey);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->getAdminGroups: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAllGroups**
+> APIResponse getAllGroups(instanceKey, includeParticipants)
 
 Get all groups.
 
@@ -143,10 +245,10 @@ final String instanceKey = instanceKey_example; // String | Instance key
 final String includeParticipants = includeParticipants_example; // String | Include participants data
 
 try {
-    final response = api.instancesInstanceKeyGroupsGet(instanceKey, includeParticipants);
+    final response = api.getAllGroups(instanceKey, includeParticipants);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGet: $e\n');
+    print('Exception when calling GroupManagementApi->getAllGroups: $e\n');
 }
 ```
 
@@ -172,8 +274,306 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGroupIdAnnouncePut**
-> APIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId)
+# **getGroup**
+> APIResponse getGroup(instanceKey, groupId)
+
+Get group.
+
+Fetches the group data.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+
+try {
+    final response = api.getGroup(instanceKey, groupId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->getGroup: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGroupFromInviteLink**
+> APIResponse getGroupFromInviteLink(instanceKey, inviteLink)
+
+Get group from invite link.
+
+Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String inviteLink = inviteLink_example; // String | The invite link to check
+
+try {
+    final response = api.getGroupFromInviteLink(instanceKey, inviteLink);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->getGroupFromInviteLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **inviteLink** | **String**| The invite link to check | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGroupInviteCode**
+> APIResponse getGroupInviteCode(instanceKey, groupId)
+
+Get group invite code.
+
+Gets the invite code of the group.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+
+try {
+    final response = api.getGroupInviteCode(instanceKey, groupId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->getGroupInviteCode: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **leaveGroup**
+> APIResponse leaveGroup(instanceKey, groupId)
+
+Leaves the group.
+
+Leaves the specified group.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+
+try {
+    final response = api.leaveGroup(instanceKey, groupId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->leaveGroup: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **promoteParticipant**
+> APIResponse promoteParticipant(instanceKey, groupId, data)
+
+Promote participant.
+
+Promotes participants to admin. You must be admin in the group or the query will fail.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
+
+try {
+    final response = api.promoteParticipant(instanceKey, groupId, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->promoteParticipant: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **removeParticipant**
+> APIResponse removeParticipant(instanceKey, groupId, data)
+
+Remove participant.
+
+Handles removing participants from a group. You must be admin in the group or the query will fail.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
+
+try {
+    final response = api.removeParticipant(instanceKey, groupId, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->removeParticipant: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **setGroupAnnounce**
+> APIResponse setGroupAnnounce(instanceKey, announce, groupId)
 
 Set group announce.
 
@@ -193,10 +593,10 @@ final bool announce = true; // bool | Announce status
 final String groupId = groupId_example; // String | Group id of the group
 
 try {
-    final response = api.instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId);
+    final response = api.setGroupAnnounce(instanceKey, announce, groupId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdAnnouncePut: $e\n');
+    print('Exception when calling GroupManagementApi->setGroupAnnounce: $e\n');
 }
 ```
 
@@ -223,57 +623,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGroupIdDelete**
-> APIResponse instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId)
-
-Leaves the group.
-
-Leaves the specified group.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdDelete: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdDescriptionPut**
-> APIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data)
+# **setGroupDescription**
+> APIResponse setGroupDescription(instanceKey, groupId, data)
 
 Set group description.
 
@@ -293,10 +644,10 @@ final String groupId = groupId_example; // String | Group id of the group
 final GroupUpdateDescriptionPayload data = ; // GroupUpdateDescriptionPayload | Group description data
 
 try {
-    final response = api.instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data);
+    final response = api.setGroupDescription(instanceKey, groupId, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdDescriptionPut: $e\n');
+    print('Exception when calling GroupManagementApi->setGroupDescription: $e\n');
 }
 ```
 
@@ -323,106 +674,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGroupIdGet**
-> APIResponse instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId)
-
-Get group.
-
-Fetches the group data.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdInviteCodeGet**
-> APIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId)
-
-Get group invite code.
-
-Gets the invite code of the group.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdInviteCodeGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdLockPut**
-> APIResponse instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId)
+# **setGroupLocked**
+> APIResponse setGroupLocked(instanceKey, locked, groupId)
 
 Set group locked.
 
@@ -442,10 +695,10 @@ final bool locked = true; // bool | Locked status
 final String groupId = groupId_example; // String | Group id of the group
 
 try {
-    final response = api.instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId);
+    final response = api.setGroupLocked(instanceKey, locked, groupId);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdLockPut: $e\n');
+    print('Exception when calling GroupManagementApi->setGroupLocked: $e\n');
 }
 ```
 
@@ -472,8 +725,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGroupIdNamePut**
-> APIResponse instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data)
+# **setGroupName**
+> APIResponse setGroupName(instanceKey, groupId, data)
 
 Set group name.
 
@@ -493,10 +746,10 @@ final String groupId = groupId_example; // String | Group id of the group
 final GroupUpdateNamePayload data = ; // GroupUpdateNamePayload | Group name data
 
 try {
-    final response = api.instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data);
+    final response = api.setGroupName(instanceKey, groupId, data);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdNamePut: $e\n');
+    print('Exception when calling GroupManagementApi->setGroupName: $e\n');
 }
 ```
 
@@ -523,212 +776,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **instancesInstanceKeyGroupsGroupIdParticipantsAddPost**
-> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data)
-
-Add participant.
-
-Handles adding participants to a group. You must be admin in the group or the query will fail.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdParticipantsAddPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdParticipantsDemotePut**
-> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data)
-
-Demote participant.
-
-Demotes admins in groups. You must be admin in the group or the query will fail.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdParticipantsDemotePut: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdParticipantsPromotePut**
-> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data)
-
-Promote participant.
-
-Promotes participants to admin. You must be admin in the group or the query will fail.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdParticipantsPromotePut: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete**
-> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data)
-
-Remove participant.
-
-Handles removing participants from a group. You must be admin in the group or the query will fail.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String groupId = groupId_example; // String | Group id of the group
-final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
-
-try {
-    final response = api.instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **groupId** | **String**| Group id of the group | 
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsGroupIdProfilePicPut**
-> APIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest)
+# **setGroupPicture**
+> APIResponse setGroupPicture(instanceKey, groupId, setGroupPictureRequest)
 
 Set group picture.
 
@@ -745,13 +794,13 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest = ; // InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest | 
+final SetGroupPictureRequest setGroupPictureRequest = ; // SetGroupPictureRequest | 
 
 try {
-    final response = api.instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest);
+    final response = api.setGroupPicture(instanceKey, groupId, setGroupPictureRequest);
     print(response);
 } catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsGroupIdProfilePicPut: $e\n');
+    print('Exception when calling GroupManagementApi->setGroupPicture: $e\n');
 }
 ```
 
@@ -761,7 +810,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **instancesInstanceKeyGroupsGroupIdProfilePicPutRequest** | [**InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest**](InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)|  | 
+ **setGroupPictureRequest** | [**SetGroupPictureRequest**](SetGroupPictureRequest.md)|  | 
 
 ### Return type
 
@@ -774,55 +823,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **instancesInstanceKeyGroupsInviteInfoGet**
-> APIResponse instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink)
-
-Get group from invite link.
-
-Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getGroupManagementApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-final String inviteLink = inviteLink_example; // String | The invite link to check
-
-try {
-    final response = api.instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling GroupManagementApi->instancesInstanceKeyGroupsInviteInfoGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
- **inviteLink** | **String**| The invite link to check | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
