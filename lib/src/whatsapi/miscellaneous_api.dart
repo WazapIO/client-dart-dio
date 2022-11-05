@@ -8,8 +8,8 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/models/main_api_response.dart';
-import 'package:openapi/src/models/structs_user_info_payload.dart';
+import 'package:openapi/src/models/api_response.dart';
+import 'package:openapi/src/models/user_info_payload.dart';
 
 class MiscellaneousApi {
 
@@ -32,9 +32,9 @@ class MiscellaneousApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyMiscProfilePicGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyMiscProfilePicGet({ 
     required String instanceKey,
     required String jid,
     CancelToken? cancelToken,
@@ -77,14 +77,14 @@ class MiscellaneousApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -95,7 +95,7 @@ class MiscellaneousApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -120,11 +120,11 @@ class MiscellaneousApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyMiscUserInfoPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeyMiscUserInfoPost({ 
     required String instanceKey,
-    required StructsUserInfoPayload data,
+    required UserInfoPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -156,7 +156,7 @@ class MiscellaneousApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsUserInfoPayload);
+      const _type = FullType(UserInfoPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -179,14 +179,14 @@ class MiscellaneousApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -197,7 +197,7 @@ class MiscellaneousApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

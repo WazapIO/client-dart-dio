@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **instancesCreateGet**
-> MainAPIResponse instancesCreateGet(instanceKey)
+> APIResponse instancesCreateGet(instanceKey)
 
 Creates a new instance key.
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyContactsGet**
-> MainAPIResponse instancesInstanceKeyContactsGet(instanceKey)
+> APIResponse instancesInstanceKeyContactsGet(instanceKey)
 
 Get contacts.
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyDeleteDelete**
-> MainAPIResponse instancesInstanceKeyDeleteDelete(instanceKey)
+> APIResponse instancesInstanceKeyDeleteDelete(instanceKey)
 
 Delete Instance.
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGet**
-> MainAPIResponse instancesInstanceKeyGet(instanceKey)
+> APIResponse instancesInstanceKeyGet(instanceKey)
 
 Get Instance.
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyLogoutDelete**
-> MainAPIResponse instancesInstanceKeyLogoutDelete(instanceKey)
+> APIResponse instancesInstanceKeyLogoutDelete(instanceKey)
 
 Logout Instance.
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyQrcodeGet**
-> MainAPIResponse instancesInstanceKeyQrcodeGet(instanceKey)
+> APIResponse instancesInstanceKeyQrcodeGet(instanceKey)
 
 Get QrCode.
 
@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyWebhookPut**
-> MainAPIResponse instancesInstanceKeyWebhookPut(instanceKey, data)
+> APIResponse instancesInstanceKeyWebhookPut(instanceKey, data)
 
 Change Webhook url.
 
@@ -318,7 +318,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getInstanceApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsWebhookPayload data = ; // StructsWebhookPayload | Message data
+final WebhookPayload data = ; // WebhookPayload | Message data
 
 try {
     final response = api.instancesInstanceKeyWebhookPut(instanceKey, data);
@@ -333,11 +333,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsWebhookPayload**](StructsWebhookPayload.md)| Message data | 
+ **data** | [**WebhookPayload**](WebhookPayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesListGet**
-> MainAPIResponse instancesListGet()
+> APIResponse instancesListGet()
 
 Get all instances.
 
@@ -380,7 +380,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

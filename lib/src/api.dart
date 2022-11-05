@@ -9,6 +9,7 @@ import 'package:openapi/src/auth/api_key_auth.dart';
 import 'package:openapi/src/auth/basic_auth.dart';
 import 'package:openapi/src/auth/bearer_auth.dart';
 import 'package:openapi/src/auth/oauth.dart';
+import 'package:openapi/src/whatsapi/business_management_api.dart';
 import 'package:openapi/src/whatsapi/group_management_api.dart';
 import 'package:openapi/src/whatsapi/instance_api.dart';
 import 'package:openapi/src/whatsapi/message_sending_api.dart';
@@ -66,6 +67,12 @@ class Openapi {
     if (this.dio.interceptors.any((i) => i is ApiKeyAuthInterceptor)) {
       (this.dio.interceptors.firstWhere((element) => element is ApiKeyAuthInterceptor) as ApiKeyAuthInterceptor).apiKeys[name] = apiKey;
     }
+  }
+
+  /// Get BusinessManagementApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  BusinessManagementApi getBusinessManagementApi() {
+    return BusinessManagementApi(dio, serializers);
   }
 
   /// Get GroupManagementApi instance, base route and serializer can be overridden by a given but be careful,

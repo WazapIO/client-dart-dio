@@ -9,7 +9,6 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**instancesInstanceKeyBusinessCatalogGet**](MessageSendingApi.md#instancesinstancekeybusinesscatalogget) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 [**instancesInstanceKeySendAudioPost**](MessageSendingApi.md#instancesinstancekeysendaudiopost) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
 [**instancesInstanceKeySendButtonMediaPost**](MessageSendingApi.md#instancesinstancekeysendbuttonmediapost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 [**instancesInstanceKeySendButtonsPost**](MessageSendingApi.md#instancesinstancekeysendbuttonspost) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
@@ -19,7 +18,7 @@ Method | HTTP request | Description
 [**instancesInstanceKeySendListPost**](MessageSendingApi.md#instancesinstancekeysendlistpost) | **POST** /instances/{instance_key}/send/list | Send a List message.
 [**instancesInstanceKeySendLocationPost**](MessageSendingApi.md#instancesinstancekeysendlocationpost) | **POST** /instances/{instance_key}/send/location | Send a location message.
 [**instancesInstanceKeySendMediaPost**](MessageSendingApi.md#instancesinstancekeysendmediapost) | **POST** /instances/{instance_key}/send/media | Send a media message.
-[**instancesInstanceKeySendPollPost**](MessageSendingApi.md#instancesinstancekeysendpollpost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media.
+[**instancesInstanceKeySendPollPost**](MessageSendingApi.md#instancesinstancekeysendpollpost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
 [**instancesInstanceKeySendTemplateMediaPost**](MessageSendingApi.md#instancesinstancekeysendtemplatemediapost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
 [**instancesInstanceKeySendTemplatePost**](MessageSendingApi.md#instancesinstancekeysendtemplatepost) | **POST** /instances/{instance_key}/send/template | Send a template message.
 [**instancesInstanceKeySendTextPost**](MessageSendingApi.md#instancesinstancekeysendtextpost) | **POST** /instances/{instance_key}/send/text | Send a text message.
@@ -27,55 +26,8 @@ Method | HTTP request | Description
 [**instancesInstanceKeySendVideoPost**](MessageSendingApi.md#instancesinstancekeysendvideopost) | **POST** /instances/{instance_key}/send/video | Send raw video.
 
 
-# **instancesInstanceKeyBusinessCatalogGet**
-> MainAPIResponse instancesInstanceKeyBusinessCatalogGet(instanceKey)
-
-Fetches the catlog.
-
-Gets list of all products registered by you.
-
-### Example
-```dart
-import 'package:openapi/api.dart';
-// TODO Configure API key authorization: ApiKeyAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
-
-final api = Openapi().getMessageSendingApi();
-final String instanceKey = instanceKey_example; // String | Instance key
-
-try {
-    final response = api.instancesInstanceKeyBusinessCatalogGet(instanceKey);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling MessageSendingApi->instancesInstanceKeyBusinessCatalogGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Instance key | 
-
-### Return type
-
-[**MainAPIResponse**](MainAPIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **instancesInstanceKeySendAudioPost**
-> MainAPIResponse instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption)
+> APIResponse instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption)
 
 Send raw audio.
 
@@ -114,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -128,7 +80,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendButtonMediaPost**
-> MainAPIResponse instancesInstanceKeySendButtonMediaPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendButtonMediaPost(instanceKey, data)
 
 Send a button message with a media header.
 
@@ -144,7 +96,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsButtonMessageWithMediaPayload data = ; // StructsButtonMessageWithMediaPayload | Message data
+final ButtonMessageWithMediaPayload data = ; // ButtonMessageWithMediaPayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendButtonMediaPost(instanceKey, data);
@@ -159,11 +111,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsButtonMessageWithMediaPayload**](StructsButtonMessageWithMediaPayload.md)| Message data | 
+ **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -177,7 +129,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendButtonsPost**
-> MainAPIResponse instancesInstanceKeySendButtonsPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendButtonsPost(instanceKey, data)
 
 Send a button message.
 
@@ -193,7 +145,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsButtonMessagePayload data = ; // StructsButtonMessagePayload | Message data
+final ButtonMessagePayload data = ; // ButtonMessagePayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendButtonsPost(instanceKey, data);
@@ -208,11 +160,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsButtonMessagePayload**](StructsButtonMessagePayload.md)| Message data | 
+ **data** | [**ButtonMessagePayload**](ButtonMessagePayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -226,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendContactPost**
-> MainAPIResponse instancesInstanceKeySendContactPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendContactPost(instanceKey, data)
 
 Send a contact message.
 
@@ -242,7 +194,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsContactMessagePayload data = ; // StructsContactMessagePayload | Message data
+final ContactMessagePayload data = ; // ContactMessagePayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendContactPost(instanceKey, data);
@@ -257,11 +209,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsContactMessagePayload**](StructsContactMessagePayload.md)| Message data | 
+ **data** | [**ContactMessagePayload**](ContactMessagePayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -275,7 +227,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendDocumentPost**
-> MainAPIResponse instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption)
+> APIResponse instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption)
 
 Send raw document.
 
@@ -314,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -328,7 +280,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendImagePost**
-> MainAPIResponse instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption)
+> APIResponse instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption)
 
 Send raw image.
 
@@ -367,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -381,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendListPost**
-> MainAPIResponse instancesInstanceKeySendListPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendListPost(instanceKey, data)
 
 Send a List message.
 
@@ -397,7 +349,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsListMessagePayload data = ; // StructsListMessagePayload | Message data
+final ListMessagePayload data = ; // ListMessagePayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendListPost(instanceKey, data);
@@ -412,11 +364,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsListMessagePayload**](StructsListMessagePayload.md)| Message data | 
+ **data** | [**ListMessagePayload**](ListMessagePayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -430,7 +382,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendLocationPost**
-> MainAPIResponse instancesInstanceKeySendLocationPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendLocationPost(instanceKey, data)
 
 Send a location message.
 
@@ -446,7 +398,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsLocationMessagePayload data = ; // StructsLocationMessagePayload | Message data
+final LocationMessagePayload data = ; // LocationMessagePayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendLocationPost(instanceKey, data);
@@ -461,11 +413,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsLocationMessagePayload**](StructsLocationMessagePayload.md)| Message data | 
+ **data** | [**LocationMessagePayload**](LocationMessagePayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -479,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendMediaPost**
-> MainAPIResponse instancesInstanceKeySendMediaPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendMediaPost(instanceKey, data)
 
 Send a media message.
 
@@ -495,7 +447,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsSendMediaPayload data = ; // StructsSendMediaPayload | Message data
+final SendMediaPayload data = ; // SendMediaPayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendMediaPost(instanceKey, data);
@@ -510,11 +462,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsSendMediaPayload**](StructsSendMediaPayload.md)| Message data | 
+ **data** | [**SendMediaPayload**](SendMediaPayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -528,11 +480,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendPollPost**
-> MainAPIResponse instancesInstanceKeySendPollPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendPollPost(instanceKey, data)
 
-Send a Poll message with media.
+Send a Poll message.
 
-Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
 
 ### Example
 ```dart
@@ -544,7 +496,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsPollMessagePayload data = ; // StructsPollMessagePayload | Message data
+final PollMessagePayload data = ; // PollMessagePayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendPollPost(instanceKey, data);
@@ -559,11 +511,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsPollMessagePayload**](StructsPollMessagePayload.md)| Message data | 
+ **data** | [**PollMessagePayload**](PollMessagePayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -577,7 +529,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendTemplateMediaPost**
-> MainAPIResponse instancesInstanceKeySendTemplateMediaPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendTemplateMediaPost(instanceKey, data)
 
 Send a template message with media.
 
@@ -593,7 +545,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsTemplateButtonWithMediaPayload data = ; // StructsTemplateButtonWithMediaPayload | Message data
+final TemplateButtonWithMediaPayload data = ; // TemplateButtonWithMediaPayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendTemplateMediaPost(instanceKey, data);
@@ -608,11 +560,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsTemplateButtonWithMediaPayload**](StructsTemplateButtonWithMediaPayload.md)| Message data | 
+ **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -626,7 +578,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendTemplatePost**
-> MainAPIResponse instancesInstanceKeySendTemplatePost(instanceKey, data)
+> APIResponse instancesInstanceKeySendTemplatePost(instanceKey, data)
 
 Send a template message.
 
@@ -642,7 +594,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsTemplateButtonPayload data = ; // StructsTemplateButtonPayload | Message data
+final TemplateButtonPayload data = ; // TemplateButtonPayload | Message data
 
 try {
     final response = api.instancesInstanceKeySendTemplatePost(instanceKey, data);
@@ -657,11 +609,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsTemplateButtonPayload**](StructsTemplateButtonPayload.md)| Message data | 
+ **data** | [**TemplateButtonPayload**](TemplateButtonPayload.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -675,7 +627,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendTextPost**
-> MainAPIResponse instancesInstanceKeySendTextPost(instanceKey, data)
+> APIResponse instancesInstanceKeySendTextPost(instanceKey, data)
 
 Send a text message.
 
@@ -691,7 +643,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsTextMessage data = ; // StructsTextMessage | Message data
+final TextMessage data = ; // TextMessage | Message data
 
 try {
     final response = api.instancesInstanceKeySendTextPost(instanceKey, data);
@@ -706,11 +658,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsTextMessage**](StructsTextMessage.md)| Message data | 
+ **data** | [**TextMessage**](TextMessage.md)| Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -724,7 +676,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendUploadPost**
-> MainAPIResponse instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest)
+> APIResponse instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest)
 
 Upload media.
 
@@ -761,7 +713,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -775,7 +727,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeySendVideoPost**
-> MainAPIResponse instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption)
+> APIResponse instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption)
 
 Send raw video.
 
@@ -814,7 +766,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

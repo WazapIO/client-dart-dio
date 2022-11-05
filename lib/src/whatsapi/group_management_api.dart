@@ -8,12 +8,12 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:openapi/src/api_util.dart';
+import 'package:openapi/src/models/api_response.dart';
+import 'package:openapi/src/models/group_create_payload.dart';
+import 'package:openapi/src/models/group_update_description_payload.dart';
+import 'package:openapi/src/models/group_update_name_payload.dart';
+import 'package:openapi/src/models/group_update_participants_payload.dart';
 import 'package:openapi/src/models/instances_instance_key_groups_group_id_profile_pic_put_request.dart';
-import 'package:openapi/src/models/main_api_response.dart';
-import 'package:openapi/src/models/structs_group_create_payload.dart';
-import 'package:openapi/src/models/structs_group_update_description_payload.dart';
-import 'package:openapi/src/models/structs_group_update_name_payload.dart';
-import 'package:openapi/src/models/structs_group_update_participants_payload.dart';
 
 class GroupManagementApi {
 
@@ -35,9 +35,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsAdminGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsAdminGet({ 
     required String instanceKey,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -74,14 +74,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -92,7 +92,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -117,11 +117,11 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsCreatePost({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsCreatePost({ 
     required String instanceKey,
-    required StructsGroupCreatePayload data,
+    required GroupCreatePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -153,7 +153,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupCreatePayload);
+      const _type = FullType(GroupCreatePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -176,14 +176,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -194,7 +194,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -219,9 +219,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGet({ 
     required String instanceKey,
     String? includeParticipants = 'true',
     CancelToken? cancelToken,
@@ -264,14 +264,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -282,7 +282,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -308,9 +308,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdAnnouncePut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdAnnouncePut({ 
     required String instanceKey,
     required bool announce,
     required String groupId,
@@ -349,14 +349,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -367,7 +367,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -392,9 +392,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdDelete({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdDelete({ 
     required String instanceKey,
     required String groupId,
     CancelToken? cancelToken,
@@ -432,14 +432,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -450,7 +450,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -476,12 +476,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdDescriptionPut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdDescriptionPut({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateDescriptionPayload data,
+    required GroupUpdateDescriptionPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -513,7 +513,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateDescriptionPayload);
+      const _type = FullType(GroupUpdateDescriptionPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -536,14 +536,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -554,7 +554,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -579,9 +579,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdGet({ 
     required String instanceKey,
     required String groupId,
     CancelToken? cancelToken,
@@ -619,14 +619,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -637,7 +637,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -662,9 +662,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdInviteCodeGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdInviteCodeGet({ 
     required String instanceKey,
     required String groupId,
     CancelToken? cancelToken,
@@ -702,14 +702,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -720,7 +720,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -746,9 +746,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdLockPut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdLockPut({ 
     required String instanceKey,
     required bool locked,
     required String groupId,
@@ -787,14 +787,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -805,7 +805,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -831,12 +831,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdNamePut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdNamePut({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateNamePayload data,
+    required GroupUpdateNamePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -868,7 +868,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateNamePayload);
+      const _type = FullType(GroupUpdateNamePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -891,14 +891,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -909,7 +909,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -935,12 +935,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsAddPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsAddPost({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateParticipantsPayload data,
+    required GroupUpdateParticipantsPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -972,7 +972,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateParticipantsPayload);
+      const _type = FullType(GroupUpdateParticipantsPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -995,14 +995,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1013,7 +1013,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1039,12 +1039,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsDemotePut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsDemotePut({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateParticipantsPayload data,
+    required GroupUpdateParticipantsPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1076,7 +1076,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateParticipantsPayload);
+      const _type = FullType(GroupUpdateParticipantsPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1099,14 +1099,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1117,7 +1117,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1143,12 +1143,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsPromotePut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsPromotePut({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateParticipantsPayload data,
+    required GroupUpdateParticipantsPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1180,7 +1180,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateParticipantsPayload);
+      const _type = FullType(GroupUpdateParticipantsPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1203,14 +1203,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1221,7 +1221,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1247,12 +1247,12 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete({ 
     required String instanceKey,
     required String groupId,
-    required StructsGroupUpdateParticipantsPayload data,
+    required GroupUpdateParticipantsPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1284,7 +1284,7 @@ class GroupManagementApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsGroupUpdateParticipantsPayload);
+      const _type = FullType(GroupUpdateParticipantsPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1307,14 +1307,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1325,7 +1325,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1351,9 +1351,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsGroupIdProfilePicPut({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsGroupIdProfilePicPut({ 
     required String instanceKey,
     required String groupId,
     required InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest,
@@ -1411,14 +1411,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1429,7 +1429,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1454,9 +1454,9 @@ class GroupManagementApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyGroupsInviteInfoGet({ 
+  Future<Response<APIResponse>> instancesInstanceKeyGroupsInviteInfoGet({ 
     required String instanceKey,
     required String inviteLink,
     CancelToken? cancelToken,
@@ -1499,14 +1499,14 @@ class GroupManagementApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1517,7 +1517,7 @@ class GroupManagementApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

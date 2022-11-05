@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **instancesInstanceKeyMiscProfilePicGet**
-> MainAPIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
+> APIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
 
 Get profile pic.
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyMiscUserInfoPost**
-> MainAPIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
+> APIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
 
 Fetches the users info.
 
@@ -79,7 +79,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getMiscellaneousApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsUserInfoPayload data = ; // StructsUserInfoPayload | Data
+final UserInfoPayload data = ; // UserInfoPayload | Data
 
 try {
     final response = api.instancesInstanceKeyMiscUserInfoPost(instanceKey, data);
@@ -94,11 +94,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsUserInfoPayload**](StructsUserInfoPayload.md)| Data | 
+ **data** | [**UserInfoPayload**](UserInfoPayload.md)| Data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

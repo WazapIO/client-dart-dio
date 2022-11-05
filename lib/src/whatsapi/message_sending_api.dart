@@ -8,22 +8,22 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:openapi/src/api_util.dart';
+import 'package:openapi/src/models/api_response.dart';
+import 'package:openapi/src/models/button_message_payload.dart';
+import 'package:openapi/src/models/button_message_with_media_payload.dart';
+import 'package:openapi/src/models/contact_message_payload.dart';
 import 'package:openapi/src/models/instances_instance_key_send_audio_post_request.dart';
 import 'package:openapi/src/models/instances_instance_key_send_document_post_request.dart';
 import 'package:openapi/src/models/instances_instance_key_send_image_post_request.dart';
 import 'package:openapi/src/models/instances_instance_key_send_upload_post_request.dart';
 import 'package:openapi/src/models/instances_instance_key_send_video_post_request.dart';
-import 'package:openapi/src/models/main_api_response.dart';
-import 'package:openapi/src/models/structs_button_message_payload.dart';
-import 'package:openapi/src/models/structs_button_message_with_media_payload.dart';
-import 'package:openapi/src/models/structs_contact_message_payload.dart';
-import 'package:openapi/src/models/structs_list_message_payload.dart';
-import 'package:openapi/src/models/structs_location_message_payload.dart';
-import 'package:openapi/src/models/structs_poll_message_payload.dart';
-import 'package:openapi/src/models/structs_send_media_payload.dart';
-import 'package:openapi/src/models/structs_template_button_payload.dart';
-import 'package:openapi/src/models/structs_template_button_with_media_payload.dart';
-import 'package:openapi/src/models/structs_text_message.dart';
+import 'package:openapi/src/models/list_message_payload.dart';
+import 'package:openapi/src/models/location_message_payload.dart';
+import 'package:openapi/src/models/poll_message_payload.dart';
+import 'package:openapi/src/models/send_media_payload.dart';
+import 'package:openapi/src/models/template_button_payload.dart';
+import 'package:openapi/src/models/template_button_with_media_payload.dart';
+import 'package:openapi/src/models/text_message.dart';
 
 class MessageSendingApi {
 
@@ -32,87 +32,6 @@ class MessageSendingApi {
   final Serializers _serializers;
 
   const MessageSendingApi(this._dio, this._serializers);
-
-  /// Fetches the catlog.
-  /// Gets list of all products registered by you.
-  ///
-  /// Parameters:
-  /// * [instanceKey] - Instance key
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeyBusinessCatalogGet({ 
-    required String instanceKey,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/instances/{instance_key}/business/catalog'.replaceAll('{' r'instance_key' '}', instanceKey.toString());
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'ApiKeyAuth',
-            'keyName': 'Authorization',
-            'where': 'header',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    MainAPIResponse _responseData;
-
-    try {
-      const _responseType = FullType(MainAPIResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as MainAPIResponse;
-
-    } catch (error, stackTrace) {
-      throw DioError(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioErrorType.other,
-        error: error,
-      )..stackTrace = stackTrace;
-    }
-
-    return Response<MainAPIResponse>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
 
   /// Send raw audio.
   /// Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
@@ -129,9 +48,9 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendAudioPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendAudioPost({ 
     required String instanceKey,
     required String to,
     required InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest,
@@ -197,14 +116,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -215,7 +134,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -240,11 +159,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendButtonMediaPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendButtonMediaPost({ 
     required String instanceKey,
-    required StructsButtonMessageWithMediaPayload data,
+    required ButtonMessageWithMediaPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -276,7 +195,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsButtonMessageWithMediaPayload);
+      const _type = FullType(ButtonMessageWithMediaPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -299,14 +218,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -317,7 +236,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -342,11 +261,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendButtonsPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendButtonsPost({ 
     required String instanceKey,
-    required StructsButtonMessagePayload data,
+    required ButtonMessagePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -378,7 +297,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsButtonMessagePayload);
+      const _type = FullType(ButtonMessagePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -401,14 +320,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -419,7 +338,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -444,11 +363,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendContactPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendContactPost({ 
     required String instanceKey,
-    required StructsContactMessagePayload data,
+    required ContactMessagePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -480,7 +399,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsContactMessagePayload);
+      const _type = FullType(ContactMessagePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -503,14 +422,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -521,7 +440,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -548,9 +467,9 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendDocumentPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendDocumentPost({ 
     required String instanceKey,
     required String to,
     required InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest,
@@ -616,14 +535,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -634,7 +553,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -661,9 +580,9 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendImagePost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendImagePost({ 
     required String instanceKey,
     required String to,
     required InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest,
@@ -729,14 +648,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -747,7 +666,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -772,11 +691,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendListPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendListPost({ 
     required String instanceKey,
-    required StructsListMessagePayload data,
+    required ListMessagePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -808,7 +727,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsListMessagePayload);
+      const _type = FullType(ListMessagePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -831,14 +750,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -849,7 +768,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -874,11 +793,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendLocationPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendLocationPost({ 
     required String instanceKey,
-    required StructsLocationMessagePayload data,
+    required LocationMessagePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -910,7 +829,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsLocationMessagePayload);
+      const _type = FullType(LocationMessagePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -933,14 +852,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -951,7 +870,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -976,11 +895,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendMediaPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendMediaPost({ 
     required String instanceKey,
-    required StructsSendMediaPayload data,
+    required SendMediaPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1012,7 +931,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsSendMediaPayload);
+      const _type = FullType(SendMediaPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1035,14 +954,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1053,7 +972,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1065,8 +984,8 @@ class MessageSendingApi {
     );
   }
 
-  /// Send a Poll message with media.
-  /// Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+  /// Send a Poll message.
+  /// Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
   ///
   /// Parameters:
   /// * [instanceKey] - Instance key
@@ -1078,11 +997,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendPollPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendPollPost({ 
     required String instanceKey,
-    required StructsPollMessagePayload data,
+    required PollMessagePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1114,7 +1033,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsPollMessagePayload);
+      const _type = FullType(PollMessagePayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1137,14 +1056,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1155,7 +1074,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1180,11 +1099,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendTemplateMediaPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendTemplateMediaPost({ 
     required String instanceKey,
-    required StructsTemplateButtonWithMediaPayload data,
+    required TemplateButtonWithMediaPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1216,7 +1135,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsTemplateButtonWithMediaPayload);
+      const _type = FullType(TemplateButtonWithMediaPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1239,14 +1158,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1257,7 +1176,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1282,11 +1201,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendTemplatePost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendTemplatePost({ 
     required String instanceKey,
-    required StructsTemplateButtonPayload data,
+    required TemplateButtonPayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1318,7 +1237,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsTemplateButtonPayload);
+      const _type = FullType(TemplateButtonPayload);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1341,14 +1260,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1359,7 +1278,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1384,11 +1303,11 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendTextPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendTextPost({ 
     required String instanceKey,
-    required StructsTextMessage data,
+    required TextMessage data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1420,7 +1339,7 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(StructsTextMessage);
+      const _type = FullType(TextMessage);
       _bodyData = _serializers.serialize(data, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -1443,14 +1362,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1461,7 +1380,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1487,9 +1406,9 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendUploadPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendUploadPost({ 
     required String instanceKey,
     required String type,
     required InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest,
@@ -1553,14 +1472,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1571,7 +1490,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1598,9 +1517,9 @@ class MessageSendingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [MainAPIResponse] as data
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<MainAPIResponse>> instancesInstanceKeySendVideoPost({ 
+  Future<Response<APIResponse>> instancesInstanceKeySendVideoPost({ 
     required String instanceKey,
     required String to,
     required InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest,
@@ -1666,14 +1585,14 @@ class MessageSendingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MainAPIResponse _responseData;
+    APIResponse _responseData;
 
     try {
-      const _responseType = FullType(MainAPIResponse);
+      const _responseType = FullType(APIResponse);
       _responseData = _serializers.deserialize(
         _response.data!,
         specifiedType: _responseType,
-      ) as MainAPIResponse;
+      ) as APIResponse;
 
     } catch (error, stackTrace) {
       throw DioError(
@@ -1684,7 +1603,7 @@ class MessageSendingApi {
       )..stackTrace = stackTrace;
     }
 
-    return Response<MainAPIResponse>(
+    return Response<APIResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

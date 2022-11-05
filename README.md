@@ -46,14 +46,14 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:openapi/openapi.dart';
 
 
-final api = Openapi().getGroupManagementApi();
+final api = Openapi().getBusinessManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 
 try {
-    final response = await api.instancesInstanceKeyGroupsAdminGet(instanceKey);
+    final response = await api.instancesInstanceKeyBusinessCatalogGet(instanceKey);
     print(response);
 } catch on DioError (e) {
-    print("Exception when calling GroupManagementApi->instancesInstanceKeyGroupsAdminGet: $e\n");
+    print("Exception when calling BusinessManagementApi->instancesInstanceKeyBusinessCatalogGet: $e\n");
 }
 
 ```
@@ -64,6 +64,7 @@ All URIs are relative to */api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+[*BusinessManagementApi*](doc\BusinessManagementApi.md) | [**instancesInstanceKeyBusinessCatalogGet**](doc\BusinessManagementApi.md#instancesinstancekeybusinesscatalogget) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 [*GroupManagementApi*](doc\GroupManagementApi.md) | [**instancesInstanceKeyGroupsAdminGet**](doc\GroupManagementApi.md#instancesinstancekeygroupsadminget) | **GET** /instances/{instance_key}/groups/admin | Get admin groupss.
 [*GroupManagementApi*](doc\GroupManagementApi.md) | [**instancesInstanceKeyGroupsCreatePost**](doc\GroupManagementApi.md#instancesinstancekeygroupscreatepost) | **POST** /instances/{instance_key}/groups/create | Create group.
 [*GroupManagementApi*](doc\GroupManagementApi.md) | [**instancesInstanceKeyGroupsGet**](doc\GroupManagementApi.md#instancesinstancekeygroupsget) | **GET** /instances/{instance_key}/groups/ | Get all groups.
@@ -88,7 +89,6 @@ Class | Method | HTTP request | Description
 [*InstanceApi*](doc\InstanceApi.md) | [**instancesInstanceKeyQrcodeGet**](doc\InstanceApi.md#instancesinstancekeyqrcodeget) | **GET** /instances/{instance_key}/qrcode | Get QrCode.
 [*InstanceApi*](doc\InstanceApi.md) | [**instancesInstanceKeyWebhookPut**](doc\InstanceApi.md#instancesinstancekeywebhookput) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
 [*InstanceApi*](doc\InstanceApi.md) | [**instancesListGet**](doc\InstanceApi.md#instanceslistget) | **GET** /instances/list | Get all instances.
-[*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeyBusinessCatalogGet**](doc\MessageSendingApi.md#instancesinstancekeybusinesscatalogget) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendAudioPost**](doc\MessageSendingApi.md#instancesinstancekeysendaudiopost) | **POST** /instances/{instance_key}/send/audio | Send raw audio.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendButtonMediaPost**](doc\MessageSendingApi.md#instancesinstancekeysendbuttonmediapost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendButtonsPost**](doc\MessageSendingApi.md#instancesinstancekeysendbuttonspost) | **POST** /instances/{instance_key}/send/buttons | Send a button message.
@@ -98,7 +98,7 @@ Class | Method | HTTP request | Description
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendListPost**](doc\MessageSendingApi.md#instancesinstancekeysendlistpost) | **POST** /instances/{instance_key}/send/list | Send a List message.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendLocationPost**](doc\MessageSendingApi.md#instancesinstancekeysendlocationpost) | **POST** /instances/{instance_key}/send/location | Send a location message.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendMediaPost**](doc\MessageSendingApi.md#instancesinstancekeysendmediapost) | **POST** /instances/{instance_key}/send/media | Send a media message.
-[*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendPollPost**](doc\MessageSendingApi.md#instancesinstancekeysendpollpost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media.
+[*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendPollPost**](doc\MessageSendingApi.md#instancesinstancekeysendpollpost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendTemplateMediaPost**](doc\MessageSendingApi.md#instancesinstancekeysendtemplatemediapost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendTemplatePost**](doc\MessageSendingApi.md#instancesinstancekeysendtemplatepost) | **POST** /instances/{instance_key}/send/template | Send a template message.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**instancesInstanceKeySendTextPost**](doc\MessageSendingApi.md#instancesinstancekeysendtextpost) | **POST** /instances/{instance_key}/send/text | Send a text message.
@@ -110,36 +110,36 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [APIResponse](doc\APIResponse.md)
+ - [ButtonMessagePayload](doc\ButtonMessagePayload.md)
+ - [ButtonMessageWithMediaPayload](doc\ButtonMessageWithMediaPayload.md)
+ - [ContactMessagePayload](doc\ContactMessagePayload.md)
+ - [ContactMessagePayloadVcard](doc\ContactMessagePayloadVcard.md)
+ - [FileUpload](doc\FileUpload.md)
+ - [GroupCreatePayload](doc\GroupCreatePayload.md)
+ - [GroupUpdateDescriptionPayload](doc\GroupUpdateDescriptionPayload.md)
+ - [GroupUpdateNamePayload](doc\GroupUpdateNamePayload.md)
+ - [GroupUpdateParticipantsPayload](doc\GroupUpdateParticipantsPayload.md)
  - [InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest](doc\InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md)
  - [InstancesInstanceKeySendAudioPostRequest](doc\InstancesInstanceKeySendAudioPostRequest.md)
  - [InstancesInstanceKeySendDocumentPostRequest](doc\InstancesInstanceKeySendDocumentPostRequest.md)
  - [InstancesInstanceKeySendImagePostRequest](doc\InstancesInstanceKeySendImagePostRequest.md)
  - [InstancesInstanceKeySendUploadPostRequest](doc\InstancesInstanceKeySendUploadPostRequest.md)
  - [InstancesInstanceKeySendVideoPostRequest](doc\InstancesInstanceKeySendVideoPostRequest.md)
- - [MainAPIResponse](doc\MainAPIResponse.md)
- - [StructsButtonMessagePayload](doc\StructsButtonMessagePayload.md)
- - [StructsButtonMessageWithMediaPayload](doc\StructsButtonMessageWithMediaPayload.md)
- - [StructsContactMessagePayload](doc\StructsContactMessagePayload.md)
- - [StructsContactMessagePayloadVcard](doc\StructsContactMessagePayloadVcard.md)
- - [StructsFileUpload](doc\StructsFileUpload.md)
- - [StructsGroupCreatePayload](doc\StructsGroupCreatePayload.md)
- - [StructsGroupUpdateDescriptionPayload](doc\StructsGroupUpdateDescriptionPayload.md)
- - [StructsGroupUpdateNamePayload](doc\StructsGroupUpdateNamePayload.md)
- - [StructsGroupUpdateParticipantsPayload](doc\StructsGroupUpdateParticipantsPayload.md)
- - [StructsListItem](doc\StructsListItem.md)
- - [StructsListMessagePayload](doc\StructsListMessagePayload.md)
- - [StructsListSection](doc\StructsListSection.md)
- - [StructsLocationMessagePayload](doc\StructsLocationMessagePayload.md)
- - [StructsLocationMessagePayloadLocation](doc\StructsLocationMessagePayloadLocation.md)
- - [StructsPollMessagePayload](doc\StructsPollMessagePayload.md)
- - [StructsReplyButton](doc\StructsReplyButton.md)
- - [StructsSendMediaPayload](doc\StructsSendMediaPayload.md)
- - [StructsTemplateButton](doc\StructsTemplateButton.md)
- - [StructsTemplateButtonPayload](doc\StructsTemplateButtonPayload.md)
- - [StructsTemplateButtonWithMediaPayload](doc\StructsTemplateButtonWithMediaPayload.md)
- - [StructsTextMessage](doc\StructsTextMessage.md)
- - [StructsUserInfoPayload](doc\StructsUserInfoPayload.md)
- - [StructsWebhookPayload](doc\StructsWebhookPayload.md)
+ - [ListItem](doc\ListItem.md)
+ - [ListMessagePayload](doc\ListMessagePayload.md)
+ - [ListSection](doc\ListSection.md)
+ - [LocationMessagePayload](doc\LocationMessagePayload.md)
+ - [LocationMessagePayloadLocation](doc\LocationMessagePayloadLocation.md)
+ - [PollMessagePayload](doc\PollMessagePayload.md)
+ - [ReplyButton](doc\ReplyButton.md)
+ - [SendMediaPayload](doc\SendMediaPayload.md)
+ - [TemplateButton](doc\TemplateButton.md)
+ - [TemplateButtonPayload](doc\TemplateButtonPayload.md)
+ - [TemplateButtonWithMediaPayload](doc\TemplateButtonWithMediaPayload.md)
+ - [TextMessage](doc\TextMessage.md)
+ - [UserInfoPayload](doc\UserInfoPayload.md)
+ - [WebhookPayload](doc\WebhookPayload.md)
 
 
 ## Documentation For Authorization

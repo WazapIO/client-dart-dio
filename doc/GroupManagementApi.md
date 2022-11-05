@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **instancesInstanceKeyGroupsAdminGet**
-> MainAPIResponse instancesInstanceKeyGroupsAdminGet(instanceKey)
+> APIResponse instancesInstanceKeyGroupsAdminGet(instanceKey)
 
 Get admin groupss.
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsCreatePost**
-> MainAPIResponse instancesInstanceKeyGroupsCreatePost(instanceKey, data)
+> APIResponse instancesInstanceKeyGroupsCreatePost(instanceKey, data)
 
 Create group.
 
@@ -91,7 +91,7 @@ import 'package:openapi/api.dart';
 
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
-final StructsGroupCreatePayload data = ; // StructsGroupCreatePayload | Group create payload
+final GroupCreatePayload data = ; // GroupCreatePayload | Group create payload
 
 try {
     final response = api.instancesInstanceKeyGroupsCreatePost(instanceKey, data);
@@ -106,11 +106,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
- **data** | [**StructsGroupCreatePayload**](StructsGroupCreatePayload.md)| Group create payload | 
+ **data** | [**GroupCreatePayload**](GroupCreatePayload.md)| Group create payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGet**
-> MainAPIResponse instancesInstanceKeyGroupsGet(instanceKey, includeParticipants)
+> APIResponse instancesInstanceKeyGroupsGet(instanceKey, includeParticipants)
 
 Get all groups.
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdAnnouncePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId)
+> APIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId)
 
 Set group announce.
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -224,7 +224,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdDelete**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId)
+> APIResponse instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId)
 
 Leaves the group.
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdDescriptionPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data)
 
 Set group description.
 
@@ -290,7 +290,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateDescriptionPayload data = ; // StructsGroupUpdateDescriptionPayload | Group description data
+final GroupUpdateDescriptionPayload data = ; // GroupUpdateDescriptionPayload | Group description data
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data);
@@ -306,11 +306,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateDescriptionPayload**](StructsGroupUpdateDescriptionPayload.md)| Group description data | 
+ **data** | [**GroupUpdateDescriptionPayload**](GroupUpdateDescriptionPayload.md)| Group description data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdGet**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId)
+> APIResponse instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId)
 
 Get group.
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdInviteCodeGet**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId)
+> APIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId)
 
 Get group invite code.
 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdLockPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId)
+> APIResponse instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId)
 
 Set group locked.
 
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdNamePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data)
 
 Set group name.
 
@@ -490,7 +490,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateNamePayload data = ; // StructsGroupUpdateNamePayload | Group name data
+final GroupUpdateNamePayload data = ; // GroupUpdateNamePayload | Group name data
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data);
@@ -506,11 +506,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateNamePayload**](StructsGroupUpdateNamePayload.md)| Group name data | 
+ **data** | [**GroupUpdateNamePayload**](GroupUpdateNamePayload.md)| Group name data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdParticipantsAddPost**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data)
 
 Add participant.
 
@@ -541,7 +541,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateParticipantsPayload data = ; // StructsGroupUpdateParticipantsPayload | Group update payload
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data);
@@ -557,11 +557,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdParticipantsDemotePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data)
 
 Demote participant.
 
@@ -592,7 +592,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateParticipantsPayload data = ; // StructsGroupUpdateParticipantsPayload | Group update payload
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data);
@@ -608,11 +608,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdParticipantsPromotePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data)
 
 Promote participant.
 
@@ -643,7 +643,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateParticipantsPayload data = ; // StructsGroupUpdateParticipantsPayload | Group update payload
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data);
@@ -659,11 +659,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -677,7 +677,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data)
+> APIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data)
 
 Remove participant.
 
@@ -694,7 +694,7 @@ import 'package:openapi/api.dart';
 final api = Openapi().getGroupManagementApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String groupId = groupId_example; // String | Group id of the group
-final StructsGroupUpdateParticipantsPayload data = ; // StructsGroupUpdateParticipantsPayload | Group update payload
+final GroupUpdateParticipantsPayload data = ; // GroupUpdateParticipantsPayload | Group update payload
 
 try {
     final response = api.instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data);
@@ -710,11 +710,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -728,7 +728,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsGroupIdProfilePicPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest)
+> APIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest)
 
 Set group picture.
 
@@ -765,7 +765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **instancesInstanceKeyGroupsInviteInfoGet**
-> MainAPIResponse instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink)
+> APIResponse instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink)
 
 Get group from invite link.
 
@@ -814,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
