@@ -21,6 +21,7 @@ import 'package:openapi/src/models/contact_message_payload.dart';
 import 'package:openapi/src/models/contact_message_payload_vcard.dart';
 import 'package:openapi/src/models/file_upload.dart';
 import 'package:openapi/src/models/group_create_payload.dart';
+import 'package:openapi/src/models/group_invite_message_payload.dart';
 import 'package:openapi/src/models/group_update_description_payload.dart';
 import 'package:openapi/src/models/group_update_name_payload.dart';
 import 'package:openapi/src/models/group_update_participants_payload.dart';
@@ -29,11 +30,11 @@ import 'package:openapi/src/models/list_message_payload.dart';
 import 'package:openapi/src/models/list_section.dart';
 import 'package:openapi/src/models/location_message_payload.dart';
 import 'package:openapi/src/models/location_message_payload_location.dart';
+import 'package:openapi/src/models/payment_request_payload.dart';
 import 'package:openapi/src/models/poll_message_payload.dart';
 import 'package:openapi/src/models/reply_button.dart';
 import 'package:openapi/src/models/send_audio_request.dart';
 import 'package:openapi/src/models/send_document_request.dart';
-import 'package:openapi/src/models/send_image_request.dart';
 import 'package:openapi/src/models/send_media_payload.dart';
 import 'package:openapi/src/models/send_video_request.dart';
 import 'package:openapi/src/models/set_group_picture_request.dart';
@@ -41,6 +42,7 @@ import 'package:openapi/src/models/template_button.dart';
 import 'package:openapi/src/models/template_button_payload.dart';
 import 'package:openapi/src/models/template_button_with_media_payload.dart';
 import 'package:openapi/src/models/text_message.dart';
+import 'package:openapi/src/models/update_profile_pic_request.dart';
 import 'package:openapi/src/models/upload_media_request.dart';
 import 'package:openapi/src/models/user_info_payload.dart';
 import 'package:openapi/src/models/webhook_payload.dart';
@@ -55,6 +57,7 @@ part 'serializers.g.dart';
   ContactMessagePayloadVcard,
   FileUpload,
   GroupCreatePayload,
+  GroupInviteMessagePayload,
   GroupUpdateDescriptionPayload,
   GroupUpdateNamePayload,
   GroupUpdateParticipantsPayload,
@@ -63,11 +66,11 @@ part 'serializers.g.dart';
   ListSection,
   LocationMessagePayload,
   LocationMessagePayloadLocation,
+  PaymentRequestPayload,
   PollMessagePayload,
   ReplyButton,
   SendAudioRequest,
   SendDocumentRequest,
-  SendImageRequest,
   SendMediaPayload,
   SendVideoRequest,
   SetGroupPictureRequest,
@@ -75,6 +78,7 @@ part 'serializers.g.dart';
   TemplateButtonPayload,
   TemplateButtonWithMediaPayload,
   TextMessage,
+  UpdateProfilePicRequest,
   UploadMediaRequest,
   UserInfoPayload,
   WebhookPayload,

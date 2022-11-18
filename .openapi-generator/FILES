@@ -9,6 +9,7 @@ doc/ContactMessagePayload.md
 doc/ContactMessagePayloadVcard.md
 doc/FileUpload.md
 doc/GroupCreatePayload.md
+doc/GroupInviteMessagePayload.md
 doc/GroupManagementApi.md
 doc/GroupUpdateDescriptionPayload.md
 doc/GroupUpdateNamePayload.md
@@ -21,11 +22,11 @@ doc/LocationMessagePayload.md
 doc/LocationMessagePayloadLocation.md
 doc/MessageSendingApi.md
 doc/MiscellaneousApi.md
+doc/PaymentRequestPayload.md
 doc/PollMessagePayload.md
 doc/ReplyButton.md
 doc/SendAudioRequest.md
 doc/SendDocumentRequest.md
-doc/SendImageRequest.md
 doc/SendMediaPayload.md
 doc/SendVideoRequest.md
 doc/SetGroupPictureRequest.md
@@ -33,6 +34,7 @@ doc/TemplateButton.md
 doc/TemplateButtonPayload.md
 doc/TemplateButtonWithMediaPayload.md
 doc/TextMessage.md
+doc/UpdateProfilePicRequest.md
 doc/UploadMediaRequest.md
 doc/UserInfoPayload.md
 doc/WebhookPayload.md
@@ -53,6 +55,7 @@ lib/src/models/contact_message_payload_vcard.dart
 lib/src/models/date.dart
 lib/src/models/file_upload.dart
 lib/src/models/group_create_payload.dart
+lib/src/models/group_invite_message_payload.dart
 lib/src/models/group_update_description_payload.dart
 lib/src/models/group_update_name_payload.dart
 lib/src/models/group_update_participants_payload.dart
@@ -61,11 +64,11 @@ lib/src/models/list_message_payload.dart
 lib/src/models/list_section.dart
 lib/src/models/location_message_payload.dart
 lib/src/models/location_message_payload_location.dart
+lib/src/models/payment_request_payload.dart
 lib/src/models/poll_message_payload.dart
 lib/src/models/reply_button.dart
 lib/src/models/send_audio_request.dart
 lib/src/models/send_document_request.dart
-lib/src/models/send_image_request.dart
 lib/src/models/send_media_payload.dart
 lib/src/models/send_video_request.dart
 lib/src/models/set_group_picture_request.dart
@@ -73,6 +76,7 @@ lib/src/models/template_button.dart
 lib/src/models/template_button_payload.dart
 lib/src/models/template_button_with_media_payload.dart
 lib/src/models/text_message.dart
+lib/src/models/update_profile_pic_request.dart
 lib/src/models/upload_media_request.dart
 lib/src/models/user_info_payload.dart
 lib/src/models/webhook_payload.dart
@@ -83,9 +87,6 @@ lib/src/whatsapi/instance_api.dart
 lib/src/whatsapi/message_sending_api.dart
 lib/src/whatsapi/miscellaneous_api.dart
 pubspec.yaml
-test/send_audio_request_test.dart
-test/send_document_request_test.dart
-test/send_image_request_test.dart
-test/send_video_request_test.dart
-test/set_group_picture_request_test.dart
-test/upload_media_request_test.dart
+test/group_invite_message_payload_test.dart
+test/payment_request_payload_test.dart
+test/update_profile_pic_request_test.dart

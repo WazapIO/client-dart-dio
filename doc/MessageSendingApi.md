@@ -14,6 +14,7 @@ Method | HTTP request | Description
 [**sendButtonWithMedia**](MessageSendingApi.md#sendbuttonwithmedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 [**sendContact**](MessageSendingApi.md#sendcontact) | **POST** /instances/{instance_key}/send/contact | Send a contact message.
 [**sendDocument**](MessageSendingApi.md#senddocument) | **POST** /instances/{instance_key}/send/document | Send raw document.
+[**sendGroupInvite**](MessageSendingApi.md#sendgroupinvite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message
 [**sendImage**](MessageSendingApi.md#sendimage) | **POST** /instances/{instance_key}/send/image | Send raw image.
 [**sendListMessage**](MessageSendingApi.md#sendlistmessage) | **POST** /instances/{instance_key}/send/list | Send a List message.
 [**sendLocation**](MessageSendingApi.md#sendlocation) | **POST** /instances/{instance_key}/send/location | Send a location message.
@@ -279,8 +280,57 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **sendGroupInvite**
+> APIResponse sendGroupInvite(instanceKey, data)
+
+Send a group invite message
+
+Sends a group invite message to the specified number. Don't include \"https://chat.whatsapp.com/\" in the invite code.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getMessageSendingApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final GroupInviteMessagePayload data = ; // GroupInviteMessagePayload | Message data
+
+try {
+    final response = api.sendGroupInvite(instanceKey, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MessageSendingApi->sendGroupInvite: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **data** | [**GroupInviteMessagePayload**](GroupInviteMessagePayload.md)| Message data | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **sendImage**
-> APIResponse sendImage(instanceKey, to, sendImageRequest, caption)
+> APIResponse sendImage(instanceKey, to, updateProfilePicRequest, caption)
 
 Send raw image.
 
@@ -297,11 +347,11 @@ import 'package:openapi/api.dart';
 final api = Openapi().getMessageSendingApi();
 final String instanceKey = instanceKey_example; // String | Instance key
 final String to = to_example; // String | The recipient's number
-final SendImageRequest sendImageRequest = ; // SendImageRequest | 
+final UpdateProfilePicRequest updateProfilePicRequest = ; // UpdateProfilePicRequest | 
 final String caption = caption_example; // String | Attached caption
 
 try {
-    final response = api.sendImage(instanceKey, to, sendImageRequest, caption);
+    final response = api.sendImage(instanceKey, to, updateProfilePicRequest, caption);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling MessageSendingApi->sendImage: $e\n');
@@ -314,7 +364,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **to** | **String**| The recipient's number | 
- **sendImageRequest** | [**SendImageRequest**](SendImageRequest.md)|  | 
+ **updateProfilePicRequest** | [**UpdateProfilePicRequest**](UpdateProfilePicRequest.md)|  | 
  **caption** | **String**| Attached caption | [optional] 
 
 ### Return type

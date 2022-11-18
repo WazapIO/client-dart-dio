@@ -14,9 +14,11 @@ Method | HTTP request | Description
 [**demoteParticipant**](GroupManagementApi.md#demoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
 [**getAdminGroups**](GroupManagementApi.md#getadmingroups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups.
 [**getAllGroups**](GroupManagementApi.md#getallgroups) | **GET** /instances/{instance_key}/groups/ | Get all groups.
+[**getAllParticipants**](GroupManagementApi.md#getallparticipants) | **GET** /instances/{instance_key}/groups/{group_id}/participants | Get all participants.
 [**getGroup**](GroupManagementApi.md#getgroup) | **GET** /instances/{instance_key}/groups/{group_id} | Get group.
 [**getGroupFromInviteLink**](GroupManagementApi.md#getgroupfrominvitelink) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link.
 [**getGroupInviteCode**](GroupManagementApi.md#getgroupinvitecode) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+[**joinGroupWithLink**](GroupManagementApi.md#joingroupwithlink) | **GET** /instances/{instance_key}/groups/join | Join group with invite code.
 [**leaveGroup**](GroupManagementApi.md#leavegroup) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
 [**promoteParticipant**](GroupManagementApi.md#promoteparticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
 [**removeParticipant**](GroupManagementApi.md#removeparticipant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
@@ -274,6 +276,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getAllParticipants**
+> APIResponse getAllParticipants(instanceKey, groupId)
+
+Get all participants.
+
+Returns all participants of the group.
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String groupId = groupId_example; // String | Group id of the group
+
+try {
+    final response = api.getAllParticipants(instanceKey, groupId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->getAllParticipants: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **groupId** | **String**| Group id of the group | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getGroup**
 > APIResponse getGroup(instanceKey, groupId)
 
@@ -405,6 +456,55 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instanceKey** | **String**| Instance key | 
  **groupId** | **String**| Group id of the group | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **joinGroupWithLink**
+> APIResponse joinGroupWithLink(instanceKey, inviteCode)
+
+Join group with invite code.
+
+Joins a group with group invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode} You have to put invite_code in the url of the request. The invite code is the part after https://chat.whatsapp.com/ For example, if the invite link is https://chat.whatsapp.com/dsfsf34r3d3dsds, then the invite code is `dsfsf34r3d3dsds“
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getGroupManagementApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String inviteCode = inviteCode_example; // String | The invite code of group you want to join
+
+try {
+    final response = api.joinGroupWithLink(instanceKey, inviteCode);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling GroupManagementApi->joinGroupWithLink: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **inviteCode** | **String**| The invite code of group you want to join | 
 
 ### Return type
 

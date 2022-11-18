@@ -12,17 +12,18 @@ import 'package:openapi/src/models/api_response.dart';
 import 'package:openapi/src/models/button_message_payload.dart';
 import 'package:openapi/src/models/button_message_with_media_payload.dart';
 import 'package:openapi/src/models/contact_message_payload.dart';
+import 'package:openapi/src/models/group_invite_message_payload.dart';
 import 'package:openapi/src/models/list_message_payload.dart';
 import 'package:openapi/src/models/location_message_payload.dart';
 import 'package:openapi/src/models/poll_message_payload.dart';
 import 'package:openapi/src/models/send_audio_request.dart';
 import 'package:openapi/src/models/send_document_request.dart';
-import 'package:openapi/src/models/send_image_request.dart';
 import 'package:openapi/src/models/send_media_payload.dart';
 import 'package:openapi/src/models/send_video_request.dart';
 import 'package:openapi/src/models/template_button_payload.dart';
 import 'package:openapi/src/models/template_button_with_media_payload.dart';
 import 'package:openapi/src/models/text_message.dart';
+import 'package:openapi/src/models/update_profile_pic_request.dart';
 import 'package:openapi/src/models/upload_media_request.dart';
 
 class MessageSendingApi {
@@ -565,13 +566,115 @@ class MessageSendingApi {
     );
   }
 
+  /// Send a group invite message
+  /// Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+  ///
+  /// Parameters:
+  /// * [instanceKey] - Instance key
+  /// * [data] - Message data
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [APIResponse] as data
+  /// Throws [DioError] if API call or serialization fails
+  Future<Response<APIResponse>> sendGroupInvite({ 
+    required String instanceKey,
+    required GroupInviteMessagePayload data,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/instances/{instance_key}/send/group-invite'.replaceAll('{' r'instance_key' '}', instanceKey.toString());
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'ApiKeyAuth',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(GroupInviteMessagePayload);
+      _bodyData = _serializers.serialize(data, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioError(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    APIResponse _responseData;
+
+    try {
+      const _responseType = FullType(APIResponse);
+      _responseData = _serializers.deserialize(
+        _response.data!,
+        specifiedType: _responseType,
+      ) as APIResponse;
+
+    } catch (error, stackTrace) {
+      throw DioError(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
+
+    return Response<APIResponse>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
   /// Send raw image.
   /// Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
   ///
   /// Parameters:
   /// * [instanceKey] - Instance key
   /// * [to] - The recipient's number
-  /// * [sendImageRequest] 
+  /// * [updateProfilePicRequest] 
   /// * [caption] - Attached caption
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -585,7 +688,7 @@ class MessageSendingApi {
   Future<Response<APIResponse>> sendImage({ 
     required String instanceKey,
     required String to,
-    required SendImageRequest sendImageRequest,
+    required UpdateProfilePicRequest updateProfilePicRequest,
     String? caption,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -623,8 +726,8 @@ class MessageSendingApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SendImageRequest);
-      _bodyData = _serializers.serialize(sendImageRequest, specifiedType: _type);
+      const _type = FullType(UpdateProfilePicRequest);
+      _bodyData = _serializers.serialize(updateProfilePicRequest, specifiedType: _type);
 
     } catch(error, stackTrace) {
       throw DioError(
