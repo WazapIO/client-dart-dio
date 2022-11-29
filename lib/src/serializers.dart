@@ -44,6 +44,7 @@ import 'package:openapi/src/models/template_button_with_media_payload.dart';
 import 'package:openapi/src/models/text_message.dart';
 import 'package:openapi/src/models/update_profile_pic_request.dart';
 import 'package:openapi/src/models/upload_media_request.dart';
+import 'package:openapi/src/models/url_media_upload_payload.dart';
 import 'package:openapi/src/models/user_info_payload.dart';
 import 'package:openapi/src/models/webhook_payload.dart';
 
@@ -80,6 +81,7 @@ part 'serializers.g.dart';
   TextMessage,
   UpdateProfilePicRequest,
   UploadMediaRequest,
+  UrlMediaUploadPayload,
   UserInfoPayload,
   WebhookPayload,
 ])

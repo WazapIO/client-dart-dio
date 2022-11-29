@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**sendTextMessage**](MessageSendingApi.md#sendtextmessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
 [**sendVideo**](MessageSendingApi.md#sendvideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
 [**uploadMedia**](MessageSendingApi.md#uploadmedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
+[**uploadMediaFromUrl**](MessageSendingApi.md#uploadmediafromurl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url.
 
 
 # **sendAudio**
@@ -813,6 +814,57 @@ Name | Type | Description  | Notes
  **instanceKey** | **String**| Instance key | 
  **type** | **String**| Media type | 
  **uploadMediaRequest** | [**UploadMediaRequest**](UploadMediaRequest.md)|  | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **uploadMediaFromUrl**
+> APIResponse uploadMediaFromUrl(instanceKey, type, data)
+
+Upload media from url.
+
+Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Example
+```dart
+import 'package:openapi/api.dart';
+// TODO Configure API key authorization: ApiKeyAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
+
+final api = Openapi().getMessageSendingApi();
+final String instanceKey = instanceKey_example; // String | Instance key
+final String type = type_example; // String | Media type
+final UrlMediaUploadPayload data = ; // UrlMediaUploadPayload | Media data
+
+try {
+    final response = api.uploadMediaFromUrl(instanceKey, type, data);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MessageSendingApi->uploadMediaFromUrl: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **String**| Instance key | 
+ **type** | **String**| Media type | 
+ **data** | [**UrlMediaUploadPayload**](UrlMediaUploadPayload.md)| Media data | 
 
 ### Return type
 

@@ -36,6 +36,7 @@ doc/TemplateButtonWithMediaPayload.md
 doc/TextMessage.md
 doc/UpdateProfilePicRequest.md
 doc/UploadMediaRequest.md
+doc/UrlMediaUploadPayload.md
 doc/UserInfoPayload.md
 doc/WebhookPayload.md
 lib/openapi.dart
@@ -78,6 +79,7 @@ lib/src/models/template_button_with_media_payload.dart
 lib/src/models/text_message.dart
 lib/src/models/update_profile_pic_request.dart
 lib/src/models/upload_media_request.dart
+lib/src/models/url_media_upload_payload.dart
 lib/src/models/user_info_payload.dart
 lib/src/models/webhook_payload.dart
 lib/src/serializers.dart
@@ -87,6 +89,4 @@ lib/src/whatsapi/instance_api.dart
 lib/src/whatsapi/message_sending_api.dart
 lib/src/whatsapi/miscellaneous_api.dart
 pubspec.yaml
-test/group_invite_message_payload_test.dart
-test/payment_request_payload_test.dart
-test/update_profile_pic_request_test.dart
+test/url_media_upload_payload_test.dart

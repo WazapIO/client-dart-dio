@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**sendTextMessage**](doc\MessageSendingApi.md#sendtextmessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**sendVideo**](doc\MessageSendingApi.md#sendvideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
 [*MessageSendingApi*](doc\MessageSendingApi.md) | [**uploadMedia**](doc\MessageSendingApi.md#uploadmedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
+[*MessageSendingApi*](doc\MessageSendingApi.md) | [**uploadMediaFromUrl**](doc\MessageSendingApi.md#uploadmediafromurl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url.
 [*MiscellaneousApi*](doc\MiscellaneousApi.md) | [**downloadMedia**](doc\MiscellaneousApi.md#downloadmedia) | **POST** /instances/{instance_key}/misc/download | Download media
 [*MiscellaneousApi*](doc\MiscellaneousApi.md) | [**getProfilePic**](doc\MiscellaneousApi.md#getprofilepic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 [*MiscellaneousApi*](doc\MiscellaneousApi.md) | [**getUsersInfo**](doc\MiscellaneousApi.md#getusersinfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
@@ -147,6 +148,7 @@ Class | Method | HTTP request | Description
  - [TextMessage](doc\TextMessage.md)
  - [UpdateProfilePicRequest](doc\UpdateProfilePicRequest.md)
  - [UploadMediaRequest](doc\UploadMediaRequest.md)
+ - [UrlMediaUploadPayload](doc\UrlMediaUploadPayload.md)
  - [UserInfoPayload](doc\UserInfoPayload.md)
  - [WebhookPayload](doc\WebhookPayload.md)
 
