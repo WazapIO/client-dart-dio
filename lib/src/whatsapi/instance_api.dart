@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
 import 'package:openapi/src/models/api_response.dart';
+import 'package:openapi/src/models/create_instance_payload.dart';
 import 'package:openapi/src/models/webhook_payload.dart';
 
 class InstanceApi {
@@ -125,7 +125,7 @@ class InstanceApi {
   /// This endpoint is used to create a new WhatsApp Web instance.
   ///
   /// Parameters:
-  /// * [instanceKey] - Insert instance key if you want to provide custom key
+  /// * [data] - Instance data
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -136,7 +136,7 @@ class InstanceApi {
   /// Returns a [Future] containing a [Response] with a [APIResponse] as data
   /// Throws [DioError] if API call or serialization fails
   Future<Response<APIResponse>> createInstance({ 
-    String? instanceKey,
+    required CreateInstancePayload data,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -146,7 +146,7 @@ class InstanceApi {
   }) async {
     final _path = r'/instances/create';
     final _options = Options(
-      method: r'GET',
+      method: r'POST',
       headers: <String, dynamic>{
         ...?headers,
       },
@@ -161,17 +161,31 @@ class InstanceApi {
         ],
         ...?extra,
       },
+      contentType: 'application/json',
       validateStatus: validateStatus,
     );
 
-    final _queryParameters = <String, dynamic>{
-      if (instanceKey != null) r'instance_key': encodeQueryParameter(_serializers, instanceKey, const FullType(String)),
-    };
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(CreateInstancePayload);
+      _bodyData = _serializers.serialize(data, specifiedType: _type);
+
+    } catch(error, stackTrace) {
+      throw DioError(
+         requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioErrorType.other,
+        error: error,
+      )..stackTrace = stackTrace;
+    }
 
     final _response = await _dio.request<Object>(
       _path,
+      data: _bodyData,
       options: _options,
-      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,

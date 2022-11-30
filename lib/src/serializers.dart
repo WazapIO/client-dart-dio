@@ -19,6 +19,7 @@ import 'package:openapi/src/models/button_message_payload.dart';
 import 'package:openapi/src/models/button_message_with_media_payload.dart';
 import 'package:openapi/src/models/contact_message_payload.dart';
 import 'package:openapi/src/models/contact_message_payload_vcard.dart';
+import 'package:openapi/src/models/create_instance_payload.dart';
 import 'package:openapi/src/models/file_upload.dart';
 import 'package:openapi/src/models/group_create_payload.dart';
 import 'package:openapi/src/models/group_invite_message_payload.dart';
@@ -56,6 +57,7 @@ part 'serializers.g.dart';
   ButtonMessageWithMediaPayload,
   ContactMessagePayload,
   ContactMessagePayloadVcard,
+  CreateInstancePayload,
   FileUpload,
   GroupCreatePayload,
   GroupInviteMessagePayload,

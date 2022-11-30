@@ -10,7 +10,7 @@ All URIs are relative to */api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**changeWebhookUrl**](InstanceApi.md#changewebhookurl) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
-[**createInstance**](InstanceApi.md#createinstance) | **GET** /instances/create | Creates a new instance key.
+[**createInstance**](InstanceApi.md#createinstance) | **POST** /instances/create | Creates a new instance key.
 [**deleteInstance**](InstanceApi.md#deleteinstance) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
 [**getContacts**](InstanceApi.md#getcontacts) | **GET** /instances/{instance_key}/contacts | Get contacts.
 [**getInstance**](InstanceApi.md#getinstance) | **GET** /instances/{instance_key}/ | Get Instance.
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createInstance**
-> APIResponse createInstance(instanceKey)
+> APIResponse createInstance(data)
 
 Creates a new instance key.
 
@@ -84,10 +84,10 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKeyAuth').apiKeyPrefix = 'Bearer';
 
 final api = Openapi().getInstanceApi();
-final String instanceKey = instanceKey_example; // String | Insert instance key if you want to provide custom key
+final CreateInstancePayload data = ; // CreateInstancePayload | Instance data
 
 try {
-    final response = api.createInstance(instanceKey);
+    final response = api.createInstance(data);
     print(response);
 } catch on DioError (e) {
     print('Exception when calling InstanceApi->createInstance: $e\n');
@@ -98,7 +98,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instanceKey** | **String**| Insert instance key if you want to provide custom key | [optional] 
+ **data** | [**CreateInstancePayload**](CreateInstancePayload.md)| Instance data | 
 
 ### Return type
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

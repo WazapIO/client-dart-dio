@@ -85,7 +85,7 @@ Class | Method | HTTP request | Description
 [*GroupManagementApi*](doc\GroupManagementApi.md) | [**setGroupName**](doc\GroupManagementApi.md#setgroupname) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
 [*GroupManagementApi*](doc\GroupManagementApi.md) | [**setGroupPicture**](doc\GroupManagementApi.md#setgrouppicture) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
 [*InstanceApi*](doc\InstanceApi.md) | [**changeWebhookUrl**](doc\InstanceApi.md#changewebhookurl) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
-[*InstanceApi*](doc\InstanceApi.md) | [**createInstance**](doc\InstanceApi.md#createinstance) | **GET** /instances/create | Creates a new instance key.
+[*InstanceApi*](doc\InstanceApi.md) | [**createInstance**](doc\InstanceApi.md#createinstance) | **POST** /instances/create | Creates a new instance key.
 [*InstanceApi*](doc\InstanceApi.md) | [**deleteInstance**](doc\InstanceApi.md#deleteinstance) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
 [*InstanceApi*](doc\InstanceApi.md) | [**getContacts**](doc\InstanceApi.md#getcontacts) | **GET** /instances/{instance_key}/contacts | Get contacts.
 [*InstanceApi*](doc\InstanceApi.md) | [**getInstance**](doc\InstanceApi.md#getinstance) | **GET** /instances/{instance_key}/ | Get Instance.
@@ -123,6 +123,7 @@ Class | Method | HTTP request | Description
  - [ButtonMessageWithMediaPayload](doc\ButtonMessageWithMediaPayload.md)
  - [ContactMessagePayload](doc\ContactMessagePayload.md)
  - [ContactMessagePayloadVcard](doc\ContactMessagePayloadVcard.md)
+ - [CreateInstancePayload](doc\CreateInstancePayload.md)
  - [FileUpload](doc\FileUpload.md)
  - [GroupCreatePayload](doc\GroupCreatePayload.md)
  - [GroupInviteMessagePayload](doc\GroupInviteMessagePayload.md)

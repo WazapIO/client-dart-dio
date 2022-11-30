@@ -20,6 +20,7 @@ export 'package:openapi/src/models/button_message_payload.dart';
 export 'package:openapi/src/models/button_message_with_media_payload.dart';
 export 'package:openapi/src/models/contact_message_payload.dart';
 export 'package:openapi/src/models/contact_message_payload_vcard.dart';
+export 'package:openapi/src/models/create_instance_payload.dart';
 export 'package:openapi/src/models/file_upload.dart';
 export 'package:openapi/src/models/group_create_payload.dart';
 export 'package:openapi/src/models/group_invite_message_payload.dart';

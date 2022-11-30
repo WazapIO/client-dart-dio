@@ -7,6 +7,7 @@ doc/ButtonMessagePayload.md
 doc/ButtonMessageWithMediaPayload.md
 doc/ContactMessagePayload.md
 doc/ContactMessagePayloadVcard.md
+doc/CreateInstancePayload.md
 doc/FileUpload.md
 doc/GroupCreatePayload.md
 doc/GroupInviteMessagePayload.md
@@ -53,6 +54,7 @@ lib/src/models/button_message_payload.dart
 lib/src/models/button_message_with_media_payload.dart
 lib/src/models/contact_message_payload.dart
 lib/src/models/contact_message_payload_vcard.dart
+lib/src/models/create_instance_payload.dart
 lib/src/models/date.dart
 lib/src/models/file_upload.dart
 lib/src/models/group_create_payload.dart
@@ -89,4 +91,4 @@ lib/src/whatsapi/instance_api.dart
 lib/src/whatsapi/message_sending_api.dart
 lib/src/whatsapi/miscellaneous_api.dart
 pubspec.yaml
-test/url_media_upload_payload_test.dart
+test/create_instance_payload_test.dart
